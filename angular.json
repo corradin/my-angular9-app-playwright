@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "my-angular9-app-playwright"
+    }
+  },
+  "defaultProject": "my-angular9-app-playwright",
+  "cli": {
+    "analytics": "9bb466fd-9b1a-4d0c-9b16-7d81c469dc14"
+  }
 }
