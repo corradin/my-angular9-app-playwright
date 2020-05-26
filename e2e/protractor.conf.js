@@ -13,6 +13,9 @@ exports.config = {
     './src/**/*playwright.e2e-spec.ts'
   ],
   capabilities: {
+    chromeOptions: {
+      args: [ "--headless" ] //So we only display Playwright screens
+    },
     browserName: 'chrome'
   },
   directConnect: true,
