@@ -6,13 +6,14 @@ describe('Angular app homepage', () => {
 
   beforeAll(async () => {
     browser = await chromium.launch({ headless: false });
-    //iPhone 11 Pro
-    const pixel2 = devices['Pixel 2'];
+    //With Galaxy S5 The third test will fail
+    const pixel2 = devices['Galaxy S5'];
     const context = await browser.newContext({
       ...pixel2,
     });
-    page = await browser.newPage();
-    // page = await context.newPage();
+    // Use the below line for desktop testing
+    // page = await browser.newPage();
+    page = await context.newPage();
   });
 
   it('Should display the correct page title', async () => {
@@ -29,6 +30,13 @@ describe('Angular app homepage', () => {
     expect(titleBannerContents).toBe(
       'my-angular9-app-playwright app is running!'
     );
+  });
+
+  it('should display the full button on mobile', async () => {
+    await page.goto('http://localhost:4200');
+    // await new Promise( resolve => setTimeout(resolve, 3000) );
+    const checked = await page.click('#unclickable_button');
+    console.log(checked);
   });
 
   afterAll(async () => {
