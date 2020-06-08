@@ -32,10 +32,10 @@ describe('Angular app homepage', () => {
     );
   });
 
-  it('should display the full button on mobile', async () => {
+  it('should display the full link on mobile', async () => {
     await page.goto('http://localhost:4200');
     // await new Promise( resolve => setTimeout(resolve, 3000) );
-    const checked = await page.click('#unclickable_button');
+    const checked = await page.click('#unclickable_link');
     console.log(checked);
   });
 
